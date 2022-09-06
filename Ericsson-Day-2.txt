@@ -112,6 +112,7 @@ interface IOnlineShopping{
 	public void selectGoods();
 	public void shipment();
 	public void payment();
+	public void otp();
 }
 
 To acquire the proprties from an interface, we have to use implements keyword
@@ -127,6 +128,7 @@ class VillageSideShops implements IOnlineShopping{
 	public void payment(){
 		System.out.println("only cash payments are allowed...");
 	}
+	
 }
 
 class MunicipalitySideShops implements IOnlineShopping{
@@ -176,6 +178,31 @@ class implements interface extends class --->invalid
 inteface implements interf1, interf2 ---->invalid
 
 interface extends interf1, interf1 ---> valid
+
+java 1.8
+
+default methods
+static methods
+
+
+1. create class called Note( int pid, String author, String title, String description) along with getter and
+   setter methods and default and paramterized constructor.
+
+
+2. create an interface called INoteService with the following methods
+   
+	public String insertNote(Note note);
+    public String displayAllNotes();
+    public Note searchNote(int pid);
+    public String deleteNote(int pid);
+
+3. create an implementation class called INoteServiceImpl for the above INoteService interface and override the abstract
+  methods
+
+ 
+
+
+     
 
 
 
