@@ -7,6 +7,10 @@ public class FunctionExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		
+		Function<Double,Double> f8 = n->n*n;
+		Function<Double,Double> f9= n->n/2;
+
 		Function<Integer,Integer> f1 = n->n*n;
 		Function<Integer,Double> f2 = r-> 3.141*r*r;
 		Function<String,String> f3 = str->str.toUpperCase();
@@ -25,6 +29,9 @@ public class FunctionExample {
 		
 		System.out.println("The salary of praveen is :"+f4.apply(emp1));
 		System.out.println("The salary kumar is :"+f4.apply(emp2));
+		
+		System.out.println("f1 andThen f2-->"+f8.andThen(f9).apply(4.0));
+		System.out.println("f1 compose f2-->"+f8.compose(f9).apply(4.0));
 
 	}
 
