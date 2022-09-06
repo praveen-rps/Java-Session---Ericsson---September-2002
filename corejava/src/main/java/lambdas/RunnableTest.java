@@ -32,8 +32,5 @@ public class RunnableTest {
 		//MyThread m = new MyThread();
 		Thread t = new Thread(r);
 		t.start();
-		
-
 	}
-
 }
