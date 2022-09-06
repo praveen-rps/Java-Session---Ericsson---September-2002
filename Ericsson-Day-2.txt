@@ -200,9 +200,255 @@ static methods
   methods
 
  
+Lambda Expressions
+------------------
+
+Lambda expressions are unanimous methods, without having any name, return type, and access specifiers
 
 
-     
+     public void display(){
+		System.out.println("Inside display");
+	 }
+
+
+	() -> {
+		System.out.println("Inside display");
+	}
+
+    1. When ever there is only one method in the block, then {} is not requried.
+
+    
+	() -> System.out.println("Inside display");
+
+
+	public int add(int a, int b){
+			return a+b;
+	}
+
+    (int a, int b) -> {
+			return a+b;
+	}
+
+	(int a, int b)->return a+b;
+
+    2. There is no need to write the datatype in the parameter list
+
+	(a,b)->return a+b;
+   
+    3. If there is only one return statement, then return keyword is also not required.
+
+     (a,b) -> a+b;
+
+	
+	public boolean check(int a, int b){
+			if(a < b)
+				return true;
+			else
+				return false;
+	}
+
+	(a,b) -> a<b;
+
+	public void calArea(int length, int breadth){
+			int area;
+			area = length*breadth;
+			System.out.println("The area is  :"+area);
+	}
+
+	(length,breadth) -> {
+			int area;
+			area = length*breadth;
+			System.out.println("The area is  :"+area);
+	}
+
+   
+Funtional Interfaces
+---------------------
+Is an interface, which has only one abstract method.
+
+interface 
+
+lamdba expressions are explicitly used to implement the funtional interfaces only
+
+
+some of the predefined functional interfaces
+
+1. Runnable
+2. Comparable
+3. Comapartor
+4. Iterable
+5. Listener
+
+
+Predefined utility Functional interfaces
+----------------------------------------
+
+
+interface areas{
+		public double calArea(int radius);
+}
+
+interface Utils1{
+		public String toUpperString(String string);
+}
+
+
+interface Utils2{
+		public boolean isPrime(int n);
+}
+
+
+1. Predicate - Is an functional interface, which one method called test which will always take any 
+data type as input and returns only boolean
+
+
+
+@FunctionalInterface
+public interface Predicate<T>{
+		public boolean test(T t);
+}
+
+n->n%2==0;
+
+
+Predicate p = n->n%2==0;
+
+
+
+
+
+2. Function
+
+It is an functional interfac with only one method called, apply which can take any datatype as input
+and can return any valid datatype.
+
+@FunctionalInterface
+public interface Function<T,R>{
+	public R apply(T t);
+}
+
+
+Function<Integer,Integer> f1 = n->n*n;
+Function<Integer,Integer> f2= n/2;
+
+f1.apply(4)---> 16
+f2.apply(4)----> 2
+
+f1.andThen(f2).apply(4)----> 8
+
+f1.compose(f2).apppy(4)---> 4
+
+
+	
+f1.andThen(f2).apply(n): First f1 will be applied and then for the result f2 will be applied.
+f1.compose(f2)===>First f2 will be applied and then for the result f1 will be applied.
+
+
+
+
+
+3. Consumer
+It is an functional interface, which accepts any type of data and return void
+
+@FunctionalInterface
+public interface Consumer<T>{
+		public void accept(T t);
+}
+
+
+
+	
+
+4. Supplier
+It is also a functional interface, which doesnt accept any datatype by returns some data;
+
+@FunctionalInterface
+public interface Supplier<R>{
+		public R get();
+}
+
+
+
+
+5. BiPredicate
+
+6. BiFunction
+
+
+
+
+Supplier<String> s=()-> 
+ { 
+ String symbols="ABCDEFGHIJKLMNOPQRSTUVWXYZ#$@"; 
+ Supplier<Integer> d=()->(int)(Math.random()*10); 
+ Supplier<Character> c=()->symbols.charAt((int)(Math.random()*29)); 
+ String pwd=""; 
+ for(int i =1;i<=8;i++) 
+ { 
+ if(i%2==0) 
+ { 
+ pwd=pwd+d.get(); 
+ } 
+ else 
+ { 
+ pwd=pwd+c.get(); 
+ } 
+ } 
+ return pwd; 
+ }; 
+ System.out.println(s.get()); 
+Supplier<String> s=()-> 
+ { 
+ String symbols="ABCDEFGHIJKLMNOPQRSTUVWXYZ#$@"; 
+ Supplier<Integer> d=()->(int)(Math.random()*10); 
+ Supplier<Character> c=()->symbols.charAt((int)(Math.random()*29)); 
+ String pwd=""; 
+ for(int i =1;i<=8;i++) 
+ { 
+ if(i%2==0) 
+ { 
+ pwd=pwd+d.get(); 
+ } 
+ else 
+ { 
+ pwd=pwd+c.get(); 
+ } 
+23) } 
+24) return pwd; 
+25) }; 
+26) System.out.println(s.get()); 
+
+
+Supplier<String> s=()-> 
+8) { 
+9) String symbols="ABCDEFGHIJKLMNOPQRSTUVWXYZ#$@"; 
+10) Supplier<Integer> d=()->(int)(Math.random()*10); 
+11) Supplier<Character> c=()->symbols.charAt((int)(Math.random()*29)); 
+12) String pwd=""; 
+13) for(int i =1;i<=8;i++) 
+14) { 
+15) if(i%2==0) 
+16) { 
+17) pwd=pwd+d.get(); 
+18) } 
+19) else 
+20) { 
+21) pwd=pwd+c.get(); 
+22) } 
+23) } 
+24) return pwd; 
+25) }; 
+26) System.out.println(s.get()); 
+System.out.println(s.get()); 
+28) System.out.println(s.get()); 
+29) System.out.println(s.get()); 
+30) System.out.println(s.get()); 
+31) } 
+32) }
+
+
+
+
 
 
 
