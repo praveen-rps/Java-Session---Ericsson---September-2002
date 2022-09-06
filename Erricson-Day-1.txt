@@ -1,0 +1,511 @@
+1. reliable
+2. robust
+3. secure
+4. oops
+5. platform independent
+
+
+Java Programming basic
+----------------------
+
+datatypes
+
+byte
+short
+long 
+int
+boolean
+date
+char
+String
+float
+double
+
+
+syntax:
+
+datatype varaiblename;
+
+int a,b;
+String name,city;
+boolean isFound;
+isFound=true;
+isFound=false;
+
+
+a=1;
+a="praveen"
+
+
+
+Control Structures
+------------------
+Control structures will transfer the control from one part of the program to antoher part of the program
+
+s1;
+s2;
+s3;
+s4;
+s5;
+
+conditional based  --  
+if, switch, loops
+
+
+simple if
+
+if(cond){
+
+	statements;
+}
+next statements
+
+if else
+-------
+if(cond){
+
+}
+
+else
+{
+
+
+}
+
+
+nested if
+
+
+else if 
+
+if( cond-1) 
+{
+
+
+} else if (cond-2){
+
+
+
+} else if(condi-3) {
+
+
+
+}
+;
+;
+;
+else {
+
+
+}
+
+switch(varible)
+{
+case value1  : statments;break;
+case value2 : statements;break;
+case value3 : statements;break;
+;
+;
+;
+default: statements;
+}
+
+
+
+loops
+-----
+
+a loop is a set of statements which are repeated for fixed number of times
+
+
+1. while
+
+while(cond){
+	statements;
+
+}
+
+
+2. do while
+do{
+
+	statements;
+
+}while(cond);
+
+
+
+3. for
+
+	for(intiliazer;cond;inc/dec){
+
+
+	}
+
+  	for(int i=1;i<=10;i++)
+		statements;
+
+   
+	String names[]={"praveen","kumar","sunil"};
+
+	for(String name: names)
+    {
+	    System.out.println(name);
+
+	}
+
+
+	collection.forEach(consumer); --->java8
+
+	names.forEach(System.out::println);
+
+
+unconditional based
+break,continue
+
+
+Input and Output methods;
+=========================
+
+System.out.println("values");
+String name="praveen";
+System.out.println(name+" kumar");// praveen kumar 
+
+
+Input methods
+-------------
+
+
+1. Scanner class
+2. Stream object ie., BufferedReader
+
+java.util.Scanner;
+
+<classname> <objname> = new classname();
+Scanner sc = new Scanner(System.in);
+int a = sc.nextInt();
+
+nextInt()
+nextFloat()
+nextDouble()
+next()
+nextLine()
+
+
+
+
+
+
+
+
+
+
+
+control structures
+
+OOPS  -- Object Oriented Programming Systems
+
+It is making the programmable element as if it behaves like a real time entity.
+
+
+1. class - Is a collection of objects, which are exhibiting similar behaviour
+
+Class is a genarlized notation
+class is a logical entity
+
+HumanBeings
+flower
+Book
+
+2. Object  -- It is an instance of the class
+Object is a real time existence
+Praveen, suresh, kishore
+lily, Rose
+Java book, sql book, oracle book
+
+
+syntax:
+------
+class <classname>
+{
+	member variables;
+	member methods;
+}
+
+classname objname = new classname();
+
+class Employee{
+	int empid;
+    String name;
+	String department;
+    public void getEmployeeData(){
+
+	}
+
+	public void showEmployeeData(){
+
+	}
+}
+
+Employee employee1 = new Employee();
+employee1.empid=1001;
+employee1.name="praveen";
+employee1.getEmployeeData();
+employee1.showEmployeeData();
+
+lang
+util
+io
+net
+servlet
+
+
+
+1. public  ---- Any where it can be accessed
+2. protected --- It can be accessed by class with inheritance
+3.          --- It can be accessed within the package
+4. private  --- It can be accessed only inside the class
+
+
+when we create an object 
+
+1. Loading the .class file into memory
+2. Intantiation  -- Allocating the memory to variables (non static variables/ instance variables)
+3. Intialization  -- assiging the values to variables.
+
+
+3 types variables
+-----------------
+1. Instance Varibles or Non static variables
+2. Static variables
+3. Method variables or local variables
+
+
+
+Constructor
+------------
+It is a special method in the class, which will called automatically, when the object 
+is created.
+
+Constructors are the building blocks of objects. 
+Without constructors objects are not created.
+
+Construcrtors are of two types:
+1. default constructor
+	canbe provided by either user or system
+
+2. parameterized constructor-- should be provided by user only.
+
+Constructors used to define the activity which is mandatorly to be executed when the object is created
+
+this()---> It is used to refer one constructor inside another constructor
+
+1. this() method call should not form either cycle or loop
+
+
+2. this () method call should be the first statement
+
+3. this() method cannot be called from user defined methods.
+
+static block ---> non static block ----> constructor ----> user defined methods( if called explicitly)
+
+
+3. Polymorphism
+-----------------
+It is the ability of an entity to exists in more than one form.
+
+There are two types of polymorphism
+1. compile time polymorphism  -- The form to be exhibited if it is selected at compile time
+overloading  ---> method overloading
+
+
+When two or more methods have same method name and if they differ in any one of the following:
+
+1. either number of paramters
+2. either type of parameters
+3. order of parameters
+
+
+public void sample(int x, int y){
+
+
+}
+
+public int sample(int y, int x){
+
+
+}
+
+
+2. runtime polymorphism  ---  The form to be exhibited if it is selected at runtime
+overriding
+
+
+public int sample(int a){
+
+
+}
+
+
+sample("praveen");
+
+
+
+
+
+
+
+4. encapsualtion  -- It is the process of combining the data and methods together inside a class
+  it is used to provide the security for our data
+
+
+
+5. Data Binding -
+
+
+
+6. Inheritance -- It is the process of acquiring the properties from one class to another class
+It is for code resuablity
+
+Relations
+---------
+
+1. Is-a Relationship  (Inheritance)
+When ever one class inherits another class, it is called a is-a relation
+
+2. Has-a Relationship  -- When ever an instance of one class is used in another class
+
+3. Uses relationship  --- When ever an object of one class is passed as a parameter to 
+  antoher class method
+
+
+class Address{
+	int dno;
+    String street;
+    String city;
+	String pin;
+
+}
+
+
+
+class Person{
+	int id;
+	String name;
+	Address address;
+}
+
+
+class Employee{
+		int empid;
+		String name;
+		String dept;
+		String manager;
+		public void showDetatils(Address address){
+			sysout(address,empid,name,dept);
+		}
+}
+
+
+
+class PermamentEmployee extends Employee{
+
+		
+		public void calSalary(){
+
+		}
+
+}
+
+
+
+class TemporaryEmployee extends Employee{
+
+		
+		int sal;
+		public void calSalary(){
+
+		}
+
+}
+
+
+
+class HourlyBasedEmployee extends Employee{
+
+		int rph;
+		int noh;
+		public void calSalary(){
+
+		}
+
+}
+
+The class which is giving or providing the properties is called Base / Parent class
+the class which is acquring the properties is called dervied / child class
+
+Depending on the number of derived and base class, Java supports the following types
+of inheritances:
+
+1. Single Inheritance
+2. Multilevel inheritance
+3. multiple inheritance( Through interfaces)
+
+
+Method in Object class
+-----------------------
+
+public String getClass()
+public int hashCode()
+public boolean equals()
+public String toString()
+public void wait()
+public void wait(int sec);
+public void wait(int sec, int nanosecs)
+public void notify()
+public void notifyAll()
+public Object clone()
+public void finalize()
+
+
+super();  -->super method is used to call its immediate parent constructor
+
+super() method call must be the first line of statement
+
+Overriding
+----------
+It is the process of supressing the base class data or methods, when both are having same name
+or signature
+
+
+
+
+
+public----> protected ----> default----> private
+
+
+
+String names[]={"praveen","kumar"};
+
+for(String n:names){
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

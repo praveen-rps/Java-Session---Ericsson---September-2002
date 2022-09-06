@@ -1,11 +1,24 @@
 package corejava;
 
-public class Employee {
+public class Employee extends Object{
 	
 	private int empid;
     private String name;
 	private String department;
 	static String org;
+	
+	Employee(){
+		System.out.println("Inside the default constructor");
+		this.name="praveen";
+		// open the file in read mode
+	}
+	
+	Employee(String name, String department){
+		System.out.println("Inside the parameterized constructor");
+		this.name=name;
+		this.department=department;
+		// open the file in read mode
+	}
 	
 	public  void readEmployeeDetailsAndDisplaySalaries() {
 		

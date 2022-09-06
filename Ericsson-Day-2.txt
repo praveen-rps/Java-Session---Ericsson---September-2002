@@ -1,0 +1,189 @@
+Abstract classes and Interfaces
+-------------------------------
+
+Abstract class is a class, which consists of atleast one abstract method.
+
+An abstract method is a method which doesnot have any body or defintion
+
+public void display();
+
+
+display();
+
+class OnlineShopping{
+
+	public void selectGoods(){
+		// code related to selection of goods;
+	}
+	public void creditCardPayment(){
+
+		// code related to credit card payment;
+	}
+	public void upiOrCashPayment(){
+
+		// code related to credit card payment;
+	}
+	public void debitCardPayment(){
+
+		// code related to credit card payment;
+	}
+	public void shipment(){
+		// code related to shipment;
+	}
+}
+
+
+OnlineShopping shop1 = new OnlineShopping();
+OnlineShopping shop2 = new OnlineShopping();
+OnlineShopping shop3 = new OnlineShopping();
+
+
+
+abstract class OnlineShopping{
+
+	public void selectGoods(){
+		// code related to selection of goods;
+	}
+	public void shipment(){
+		// code related to shipment;
+	}
+	public abstract void payment();
+}
+
+We cannot create the objects for abstract classes directly, we should inherit the methods to 
+child class and override the abstract methods and create the objects for child class.
+
+
+class CreditCardPaymentShops extends OnlineShopping{
+
+
+	@Override
+	public void payment(){
+		// credit payment related code;
+	}
+}
+
+CreditCardPaymentShops shop1 = new CreditCardPaymentShops();
+shop1.selectGoods();
+shop1.shipment();
+shop1.payment();
+
+
+class UpiOrCashPaymentShops extends OnlineShopping{
+
+
+	@Override
+	public void payment(){
+		// cash or upi payment related code;
+	}
+}
+UpiOrCashPaymentShops shop2 = new UpiOrCashPaymentShops();
+shop2.selectGoods();
+shop2.shipment();
+shop2.payment();
+
+
+Constructors can be declared in the abstract classes, but it will be called only when the child
+class is created.
+
+we can declare any instance variables also.
+
+Interfaces
+----------
+
+Interfaces are java elements which consists of all abstract methods.
+Interfaces are used to provide diff defitions for all the methods
+
+Intefaces defines the rule , they will provide a template.
+
+
+interfaces are declared by using interface keyword.
+
+syntax:
+
+interface <interfacename>
+{
+	//list of abstract methods;
+}
+
+
+interface IOnlineShopping{
+
+	public void selectGoods();
+	public void shipment();
+	public void payment();
+}
+
+To acquire the proprties from an interface, we have to use implements keyword
+
+class VillageSideShops implements IOnlineShopping{
+
+	public void selectGoods(){
+		System.out.println("goods are selected from shop only");
+	}
+	public void shipment(){
+		System.out.println("goods need to be carried by person only");
+	}
+	public void payment(){
+		System.out.println("only cash payments are allowed...");
+	}
+}
+
+class MunicipalitySideShops implements IOnlineShopping{
+
+	public void selectGoods(){
+		System.out.println("goods are selected from shop or online only");
+	}
+	public void shipment(){
+		System.out.println("goods need to be carried by person or shop ");
+	}
+	public void payment(){
+		System.out.println("either cash  or upi payments are allowed...");
+	}
+}
+
+1. We cannot create objects for interfaces directly
+2. we cannot declare constructors
+3. we cannot declare instance variables.
+
+4. we can assign some constants in the interfaces.
+
+
+final
+------
+final is an access modifier, which can be applied at 3 levels
+
+1. on a variable  -- It becomes constant, ie., value cannot be changed.
+
+2. on a method  -- The method cannot be overriden
+
+3. on a class -- The class cannot be inherited
+
+
+We can acheive multiple inheritance using interfaces
+
+
+class extends class1, class2 ---->Invalid
+
+class implements intef1, interf2 --->valid
+
+class extends class implements inteface  --->valid
+
+class extends class implements interface1, interface1 -->valid
+
+class implements interface extends class --->invalid
+
+inteface implements interf1, interf2 ---->invalid
+
+interface extends interf1, interf1 ---> valid
+
+
+
+
+
+
+
+
+
+
+
