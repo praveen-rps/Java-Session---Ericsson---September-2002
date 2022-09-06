@@ -1,7 +1,7 @@
 package corejava;
 
 class Box{
-	static int count;
+	int count;
 	public void countBoxes() {
 		count++;
 		System.out.println("Box Number -->"+count);

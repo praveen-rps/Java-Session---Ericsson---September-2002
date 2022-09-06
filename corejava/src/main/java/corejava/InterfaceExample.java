@@ -9,6 +9,13 @@ interface IOnlineShopping {
 	void shipment();
 
 	void payment();
+	default void otp() {
+		System.out.println("please provide this otp to complete transaction");
+	}
+	
+	public static void security() {
+		System.out.println("security feature is enabled...");
+	}
 }
 
 class VillageSideShops implements IOnlineShopping{
@@ -36,12 +43,16 @@ class MunicipalitySideShops implements IOnlineShopping{
 	public void payment(){
 		System.out.println("either cash  or upi payments are allowed...");
 	}
+	
 }
 
 public class InterfaceExample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		IOnlineShopping.security();
+		
 		VillageSideShops shop1 = new VillageSideShops();
 		
 		MunicipalitySideShops shop2 = new MunicipalitySideShops();
@@ -50,9 +61,11 @@ public class InterfaceExample {
 		shop1.shipment();
 		shop1.payment();
 		
+		
 		shop2.selectGoods();
 		shop2.shipment();
 		shop2.payment();
+		shop2.otp();
 
 	}
 

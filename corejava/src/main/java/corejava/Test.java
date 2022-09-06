@@ -2,7 +2,7 @@ package corejava;
 
 import java.util.Scanner;
 
-public class Test {
+public interface Test {
 	public static void main(String[] args) {
 		
 		Employee.org="Erricson";

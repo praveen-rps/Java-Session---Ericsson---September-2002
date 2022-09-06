@@ -21,7 +21,7 @@ class Test1{
 		System.out.println("inside the static block");
 	}
 }
-public class ThisExample {
+public interface ThisExample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
