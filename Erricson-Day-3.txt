@@ -1,0 +1,134 @@
+Method Referencing
+------------------
+
+Method referencing is the process of assigning a method to a functional interface.
+
+
+@FunctionalInterface
+interface Maths{
+	public int add(int a, int b);
+	
+}
+
+Maths m = (a,b)->a+b;
+
+class Mathematics{
+		public static int addition(int x , int y){
+		//statements;	
+		return x+y;
+		}
+}
+Mathematics m1 = new Mathematics();
+
+
+
+
+Maths m = m1::addition;
+Maths m = Mathematics::addition;
+
+
+m.add(20,30);
+
+
+Exception Handling
+------------------
+1. Compile time errors  --- Wrong syntax of the programming language
+2. Runtime errors  --- Due to many reasons, cannot be predicted.
+
+Exception is an runtime error.
+
+The process of handling the runtime errors.
+
+eg> FileNotFound, IOException, 
+
+int c=a/b;  // exception, when b=0
+sysout(c);
+
+b=0, then it becomes an exception
+
+Str = "Hello";
+str.charAt(8); // exception
+
+s1;
+s2;
+s3;--> if there is an exception, then lang, absrtuply terminates the execution and throws one exception object
+
+s4;
+s5;
+
+The goal of exception handling in java, is to make sure that our program continues even after the
+exception is raised.
+
+
+
+try{
+
+	opened a database;
+	// keep all the eroor prone code
+
+	
+
+}
+
+catch(ExceptionObject-1 )
+{
+
+
+
+
+}
+catch(ExceptionObject-2 )
+{
+
+
+
+}
+
+finally{
+closing of database
+// keep the code to be mandatorily executed
+
+}
+next_statements;
+
+
+1. When there is no exception
+
+try ---> finally ---> next_statments(program will continue)
+
+2. When there is an exception and corresponding catach block is avaiable
+try ---> catch ---> finally --> next_statment
+
+3. When there is an exception and coresponding catch block is not available
+
+try--> finally --> stops the execution
+
+
+
+Points to remember
+-------------------
+1. when we have multiple catch blocks, parent catch block should not come before child catch block.
+
+
+2. Never user exception in catch block.
+
+
+3. We should never write single try block for the complete program,
+   we should use multiple try catch blocks, so as to handle all the exceptions at a time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
