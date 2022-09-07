@@ -117,14 +117,195 @@ Points to remember
    we should use multiple try catch blocks, so as to handle all the exceptions at a time.
 
 
+    class TestExceptionPropagation1{  
+      void m(){  
+        int data=50/0;  
+      }  
+      void n(){  
+        m();  
+      }  
+      void p(){  
+       try{  
+        n();  
+       }catch(Exception e){System.out.println("exception handled");}  
+      }  
+
+
+      public static void main(String args[]){  
+       TestExceptionPropagation1 obj=new TestExceptionPropagation1();  
+       obj.p();  
+       System.out.println("normal flow...");  
+      }  
+    }  
+
+Throws and Throw
+-----------------
+Throws keyword is used to throw the exception object without handling in
+the try catch blocks.
+
+These are used to throw the checked exceptions
+
+
+Throw keyword is used to explicitly throw an exception object even that exception condition
+is not occured.
+
+
+Throw and Throws are used to create userdefined exceptions
+
+
+class BankAccount{
+		int balance;
+		BankAccount(){
+			balance=10000;
+		}
+		public int checkBalance(){
+			return balance;
+		}
+		public int withDraw(int amount)
+		{
+			balance = balance-amount;
+			return balance;
+		}
+}
+
+
+BankAccount bnk = new BankAccount()
+
+bnk.checkBalance();  // 10000
+
+bnk.withDraw(4000);  // 6000
+
+bank.withDraw(4001);  // 1999  // invalid case
 
 
 
 
+1. create a userdefined class with the required exception name and make it as sub class
+   to exception or runtime exeption classes.
+
+
+class InsufficientFundsException extends RuntimeException{
+
+	public InsufficnetFundsException(){
+		super("You should always maintain balance of 2000");
+	}
+
+}
+
+
+2. Explicitly refer the condition and raise the exception object
+
+
+3. Handle the exception object
 
 
 
+Create two user defined exceptions, called InsufficentAgeException and InvalidAgeException
 
+checkEligibility(age);
+
+if age >0 and < 17 ----> InsufficentAgeException
+if age>100 or age <0 ---> InvalidAgeException
+
+age is between 18 and 100 ---> you are eligible for voting.
+
+
+
+Java Multithreading
+-------------------
+
+Multithreading is the process of simuletenously executing the parts of the same program.
+
+It is dervied from the concept of multi tasking.
+
+
+s1;
+s2;
+s3;
+
+
+s4;
+s5;
+s6;
+
+The part of the program which is under execution is called thread
+
+Multi threading is a light weight process, all the thread share the same memory and resources
+as all these are belongs to a single process.
+
+In the application all the applications independent, each one requires its own space and resources,
+we cannot share the resources for two diff applications or cannot have the same space to load.
+
+Multitasking is heavy weight.
+
+
+Thread Scheduler is responsible for over all thread execution
+all thread starting , running, moving to idle state and gettingback from runnable to running
+is responble by the Thread Scheduler
+
+Overall activities of thread are purely goverend by TS only.
+
+
+every thread will be assigned with some priority, and default priority of thread is 5 on the scale of 1-10
+1 is low and 10 is high.
+
+
+when a thread is created, every thread will have one unique id, unique name, priority also.
+
+
+
+Threads can be created in two ways:
+
+1. Thread class
+2. Runnable interface
+
+Thread is predefined class in java.lang package, which consists of all the methods to implement the thread
+lifecycle.
+
+
+Runnable is a functional interface, which consists of only one method called run.
+
+
+1. Thread class
+---------------
+first create a userdefined class which is sub class to thread, and override the run method in it.
+
+create the object for userdefined class and call the start method.
+
+Methods in Thread class
+-----------------------
+1. public void run(){
+		// override the functionality
+   }
+----> will contain the actual task of the thread.
+2. public void start()---> is used to start a thread
+3. public int getProirity()--> return the priority of the thread.
+4. public void setPriority(int priority)--> changes the priority of thread.
+5. public ThreadState getThreadState()-- current state of the thread
+6. public static native void sleep(long millis) 
+7. public void interrupt()  --> stop forcibly the smooth executing thread. It raises one exception called
+   InterruptedException
+8. public boolean isInterrupted() --> return true if interrupt method is called else returns false;
+9. public final native boolean isAlive() --->return true if thread is alive else returs false
+10. public boolean isDeamon()---> true if deamon thread else returns false.
+11. public void setDeamon(true) --> it will become deamon.
+12.  public final ThreadGroup getThreadGroup()  -- to get the thread group
+13. public final synchronized void join(final long millis)
+14.  public static native void yield();
+
+
+
+class MyThread extends Thread{
+
+	public void run(){
+	// write your own code 
+
+	}
+
+}
+
+MyThread t = new MyThread();
+t.start();
 
 
 
