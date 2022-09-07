@@ -35,16 +35,16 @@ public class PredicateExample {
 		Predicate<Employee> p4 = emp-> emp.salary>15000;
 		Predicate<Employee> p5 = emp-> emp.name.charAt(0)=='k';
 		
-		System.out.println(p1.test(4));
-		System.out.println(p1.test(7));
-		System.out.println(p2.test(71));
-		System.out.println(p3.test("india is my country"));
+		System.out.println(p1.test(4)); // true
+		System.out.println(p1.test(7));  // false
+		System.out.println(p2.test(71)); // true
+		System.out.println(p3.test("india is my country")); //true
 		
-		System.out.println(p4.test(emp1));
-		System.out.println(p4.test(emp2));
+		System.out.println(p4.test(emp1)); // true
+		System.out.println(p4.test(emp2)); //false
 		
-		System.out.println(p1.and(p2).test(6));
-		System.out.println(p1.or(p2).test(7));
+		System.out.println(p1.and(p2).test(16)); // true
+		System.out.println(p1.or(p2).test(7));  // false
 		
 		System.out.println(p4.or(p5).test(emp2));
 

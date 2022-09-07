@@ -23,15 +23,20 @@ public class FunctionExample {
 		Employee emp1 = new Employee("praveen",20000);
 		Employee emp2 = new Employee("kumar",12000);
 		
-		System.out.println("the square of 5 is :"+f1.apply(5));
-		System.out.println("circle area with 4 radius is : "+f2.apply(4));
+		System.out.println("the square of 5 is :"+f1.apply(5));  // 25
+		System.out.println("circle area with 4 radius is : "+f2.apply(4)); //
 		System.out.println("upper case of program is "+f3.apply("program"));
+		// PROGRAM
 		
 		System.out.println("The salary of praveen is :"+f4.apply(emp1));
-		System.out.println("The salary kumar is :"+f4.apply(emp2));
+		//High Salary
 		
-		System.out.println("f1 andThen f2-->"+f8.andThen(f9).apply(4.0));
-		System.out.println("f1 compose f2-->"+f8.compose(f9).apply(4.0));
+		System.out.println("The salary kumar is :"+f4.apply(emp2));
+		//Low Salary
+		
+		System.out.println("f1 andThen f2-->"+f8.andThen(f9).apply(4.0));//8
+		System.out.println("f1 compose f2-->"+f8.compose(f9).apply(4.0));//4
+		
 
 	}
 
