@@ -10,6 +10,7 @@ class MyRunnableThread implements Runnable{
 		
 	}
 	
+	
 }
 public class ThreadExample2 {
 
