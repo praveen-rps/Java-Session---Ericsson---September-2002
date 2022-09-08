@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.function.Predicate;
 
-class Employee {
+class Employee implements Comparable<Employee>{
 	int empid;
 	String name;
 	String dept;
@@ -44,10 +44,16 @@ class Employee {
 	public void setDept(String dept) {
 		this.dept = dept;
 	}
-	// @Override
-	// public String toString() {
-	// return empid+" "+name+" "+dept;
-	// }
+	 @Override
+	 public String toString() {
+		 return empid+" "+name+" "+dept;
+	 }
+
+	@Override
+	public int compareTo(Employee emp) {
+		// TODO Auto-generated method stub
+		return -this.dept.compareTo(emp.getDept());
+	}
 
 }
 
