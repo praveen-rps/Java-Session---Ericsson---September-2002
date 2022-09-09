@@ -119,8 +119,177 @@ rs.getString(3)
 
 
 
+PreparedStatement
+------------------
+This is a pre compiled object
+By using this object, we can dynamically read the data and execute the query
+
+
+String sql = "insert into ericsson values(?,?,?)";
+
+PreparedStatement pst = con.prepareStatement(sql);
+
+// read the values from input sources
+
+set the values to the preparedstatement
+
+pst.setInt(1,value1);
+pst.setString(2,value2);
+pst.setString(3,value3);
+
+pst.executeUpdate();-----> insert, update, delete
+pst.executeQuery()----> select
+
+
+
+Web Application
+----------------
+
+Servlet
+
+Servlet is an java api's which are used to generate dynamic web pages
+
+
+
+In java
+---------
+
+
+Servlet inteface---> all the servlet life cycle methods
+
+public void init(ServletConfig config)	
+initializes the servlet. 
+It is the life cycle method of servlet and invoked by the web container only once.
+
+
+public void service(ServletRequest request,ServletResponse response)	
+provides response for the incoming request. It is invoked at each request by the web container.
+
+
+public void destroy()	
+is invoked only once and indicates that servlet is being destroyed.
+
+public ServletConfig getServletConfig()	
+returns the object of ServletConfig.
+
+ServletContextn   
+
+ServletConfig is created for every servlet
+
+But ServletContext is created one per application -- it stores the details of runtime env.,
+related to server 
+
+
+public String getServletInfo()	
+returns information about servlet such as writer, copyright, version etc.
+
+
+class MyServlet implements Servlet{
+
+public void service(){
+	// statments 
+}
+
+
+}
+
+init ---> service --->destroy
+
+Servlet----> GenericServlet(overriden with all methods except service)
+
+class MySerlvet extends GenericServlet{
+	public void service(){
+
+	}
+}
+
+
+
+
+GenericServlet -----> HttpServlet
+
+class MyServlet extends HttpServlet
+{
+
+	public void doGet(HttpServletRequest, HttpServletResponse){
+
+	}
+
+
+}
+
+doPost()
+
+doGet()
+
+doHead()
+
+doOptions()
+
+
+
+
+jsp
+---
+
+
+MVC--->Model View Controller
+
+Model will represent data
+View will represent diplay
+Controller will embedded model in the view and send response
+
+
+Directives
+Declarations
+Action Tags
 
 
 
 
 
+
+
+
+
+
+
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+ 
+<html>
+   <head>
+      <title>SELECT Operation</title>
+   </head>
+
+   <body>
+      <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+         url = "jdbc:mysql://localhost/TEST"
+         user = "root"  password = "pass123"/>
+ 
+      <sql:query dataSource = "${snapshot}" var = "result">
+         SELECT * from Employees;
+      </sql:query>
+ 
+      <table border = "1" width = "100%">
+         <tr>
+            <th>Emp ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+         </tr>
+         
+         <c:forEach var = "row" items = "${result.rows}">
+            <tr>
+               <td><c:out value = "${row.id}"/></td>
+               <td><c:out value = "${row.first}"/></td>
+               <td><c:out value = "${row.last}"/></td>
+               <td><c:out value = "${row.age}"/></td>
+            </tr>
+         </c:forEach>
+      </table>
+ 
+   </body>
+</html>
