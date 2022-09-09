@@ -1,12 +1,15 @@
 package ericssonjdbc;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class DataDisplay {
+public class CreateTable {
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		// 1. loading the driver class
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		// 2. establish a connection
@@ -20,18 +23,13 @@ public class DataDisplay {
 		Statement st = con.createStatement();
 		// 4. write the sql query and execute the query
 		// 5. fecth the result
-		String sql = "select * from ericsson";
-		ResultSet rs = st.executeQuery(sql);
-
+		String sql = "create table ericsson(empid int, name varchar(20), dept varchar(20))";
+		st.execute(sql);
+		
 		// process the result
-
-		while (rs.next()) {
-			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
-		}
-
+		System.out.println("Table Created...");
+		
 		// 6. close the connections
-
-		rs.close();
 		st.close();
 		con.close();
 

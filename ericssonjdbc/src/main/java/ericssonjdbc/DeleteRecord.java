@@ -1,13 +1,16 @@
 package ericssonjdbc;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
 
-public class DataDisplay {
+public class DeleteRecord {
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+
+	public static void main(String[] args)throws Exception {
 		// TODO Auto-generated method stub
-		// 1. loading the driver class
-
+		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		// 2. establish a connection
 		String url = "jdbc:mysql://localhost:3306/fisglobal";
@@ -20,20 +23,19 @@ public class DataDisplay {
 		Statement st = con.createStatement();
 		// 4. write the sql query and execute the query
 		// 5. fecth the result
-		String sql = "select * from ericsson";
-		ResultSet rs = st.executeQuery(sql);
-
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter empid...");
+		int empid = sc.nextInt();
+		String sql = "delete from ericsson where empid = "+empid;
+		st.executeUpdate(sql);
+		
 		// process the result
-
-		while (rs.next()) {
-			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
-		}
-
+		System.out.println("record deleted...");
+		
 		// 6. close the connections
-
-		rs.close();
 		st.close();
 		con.close();
+
 
 	}
 
