@@ -1,0 +1,126 @@
+Streams
+-------
+
+Sorted()---------------------> default sorting order also for primitive datatypes
+Sorted(Comparator c); -------> customized sorting order and/or also for userdefined datatypes
+
+10, 2, 18, 19, 21, 1
+
+2,19,21,1----> 
+
+
+1,2,19,21----> min()--->1, max()---> 21
+
+21,19,2,1---> min()--> 21, max()---> 1
+
+JDBC
+----
+
+Java DataBase Connectivity
+To establish a communication between the java and database, some api's are used, called JDBC APIs
+
+uses some drivers for establishing the communication
+
+type-1---> jdbc-odbc bridge
+type-2---> jdbc - native api
+type-3---> net protocol
+type-4---> Thin Driver or pure java
+
+
+ODBC---> databases
+
+
+
+java.sql.*;
+
+SQLException
+
+
+DriverManager
+
+Connection
+
+Statement
+
+ResultSet
+
+PreparedStatement
+
+CallableStatement
+
+
+
+steps in establishing the jdbc connectivity
+-------------------------------------------
+
+
+1. loading the driver class  
+
+    1. Class.forName("driver");
+    2. DriverManager.registerDriver(DriverObject);
+
+
+2. establish a connection
+
+   Connection con =  DriverManager.getConnection(url,uid,pwd);
+
+
+public int fact(int x)
+{
+
+return data;
+
+}
+
+int k = fact(4);
+
+3. create a statement object
+
+        Statement st = con.createStatement();
+
+
+4. write the sql query and execute the query
+   String sql="select * from emp"; 
+   String sql ="update emp set sal=sal+100 where empno=1001":
+	ddl, dml, select
+
+
+		st.executeQuery()--->select, create, will return an object of type ResultSet
+        st.executeUpdate()---> insert, delete, update, ---> will return an int type
+        st.execute()--->callable methods
+   
+
+5. fetch the result and process the result
+
+	ResultSet rs = st.executeQuery(sql);
+
+	Methods in ResultSet
+	----------------------
+	rs.next()----> move the pointer to the next avaialbe record in the resultset and returns true
+	rs.getInt(1)---> 1001
+    rs.getString(2)---> praveen
+	rs.getString(3)--> x
+	rs.getString(4)--> y
+	rs.next();
+
+6. close the connections
+    
+    rs.close();
+    st.close();
+    con.close();
+
+
+Person(pid int,  name varchar2(50), city varchar2(50));
+
+
+rs.getInt(1)
+rs.getString(2)
+rs.getString(3)
+
+
+
+
+
+
+
+
